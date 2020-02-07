@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ZinkWu/vue-ui/issues"
   },
-  "homepage": "https://github.com/ZinkWu/vue-ui#readme"
+  "homepage": "https://github.com/ZinkWu/vue-ui#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
 }
