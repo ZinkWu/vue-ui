@@ -16,3 +16,87 @@ new Vue({
     }
   }
 })
+
+import chai from 'chai'
+const expect = chai.expect
+
+// 单元测试
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData: {
+      icon: 'settings',
+    }
+  })
+  vm.$mount()
+  let useEl = vm.$el.querySelector('use')
+  let result = useEl.getAttribute('xlink:href')
+  expect(result).to.eq('#i-settings')
+}
+
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData: {
+      icon: 'settings',
+      loading: true
+    }
+  })
+  vm.$mount()
+  let useEl = vm.$el.querySelector('use')
+  let result = useEl.getAttribute('xlink:href')
+  expect(result).to.eq('#i-loading')
+}
+
+{
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData: {
+      icon: 'settings',
+      loading: true,
+    }
+  })
+  vm.$mount(div) //必须将元素 mount 到页面中 CSS 才会加到元素上，不渲染元素就不会加载 CSS
+  let svgEl = vm.$el.querySelector('svg')
+  let { order } = window.getComputedStyle(svgEl)
+  expect(order).to.eq('1')
+  vm.$el.remove()
+  vm.$destroy()
+}
+
+{
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData: {
+      icon: 'settings',
+      loading: true,
+      iconPosition: "right"
+    }
+  })
+  vm.$mount(div) //必须将元素 mount 到页面中 CSS 才会加到元素上，不渲染元素就不会加载 CSS
+  let svgEl = vm.$el.querySelector('svg')
+  let { order } = window.getComputedStyle(svgEl)
+  expect(order).to.eq('2')
+  vm.$el.remove()
+  vm.$destroy()
+}
+
+{
+  const Constructor = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData: {
+      icon: 'settings',
+      loading: true,
+      iconPosition: "right"
+    }
+  })
+  vm.$mount()
+  vm.$on('click', function () {
+    console.log(1);
+  })
+  vm.$el.click()
+}
