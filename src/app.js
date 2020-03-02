@@ -34,6 +34,7 @@ chai.use(spies)
   let useEl = vm.$el.querySelector('use')
   let result = useEl.getAttribute('xlink:href')
   expect(result).to.eq('#i-settings')
+  vm.$destroy()
 }
 
 {
@@ -48,6 +49,7 @@ chai.use(spies)
   let useEl = vm.$el.querySelector('use')
   let result = useEl.getAttribute('xlink:href')
   expect(result).to.eq('#i-loading')
+  vm.$destroy()
 }
 
 {
@@ -103,4 +105,5 @@ chai.use(spies)
   vm.$el.click()
   // expect(spy).to.have.been.called()
   expect(spy).has.called()
+  vm.$destroy()
 }
