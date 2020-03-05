@@ -5,11 +5,16 @@
 </template>
 
 <script>
+  import './svg'
+
   export default {
     props: ['name']
   }
 </script>
 
 <style scoped lang="scss">
-    .v-icon{width: 1em;height: 1.2em;}
+    .v-icon {
+        width: 1em;
+        height: 1.2em;
+    }
 </style>
