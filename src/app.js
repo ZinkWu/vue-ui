@@ -16,5 +16,11 @@ new Vue({
       loading1: true,
       loading2: false
     }
+  },
+  methods:{
+    c(e, val){
+      console.log(e.target.value);
+      console.log(val);
+    }
   }
 })
