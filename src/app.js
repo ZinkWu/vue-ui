@@ -14,13 +14,13 @@ new Vue({
   data(){
     return{
       loading1: true,
-      loading2: false
+      loading2: false,
+      message: 123
     }
   },
   methods:{
-    c(e, val){
+    handle(e){
       console.log(e.target.value);
-      console.log(val);
     }
   }
 })

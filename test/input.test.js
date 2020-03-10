@@ -70,9 +70,16 @@ describe('Input', () => {
           const callback = sinon.fake()
           vm.$on(eventName, callback)
           let inputEl = vm.$el.querySelector('input')
-          inputEl.dispatchEvent(event)
-          expect(callback).to.have.been.calledWith(event)
-      })
+          if ('input' !== eventName) {
+            inputEl.dispatchEvent(event)
+            expect(callback).to.have.been.calledWith(event)
+          } else {
+            Object.defineProperty(event, 'target', {value: {value: 'hello'}, enumerable: true})
+            inputEl.dispatchEvent(event)
+            expect(callback).to.have.been.calledWith('hello')
+          }
+
+        })
     })
   })
 })
