@@ -32,6 +32,23 @@
 </head>
 <body>
 <div id="app">
+
+    <v-row>
+        <v-col class="col-1">1</v-col>
+        <v-col class="col-20" offset="3">2</v-col>
+    </v-row>
+
+    <v-row>
+        <v-col>1</v-col>
+        <v-col>2</v-col>
+        <v-col>1</v-col>
+        <v-col>2</v-col>
+        <v-col>1</v-col>
+        <v-col>2</v-col>
+    </v-row>
+
+    <hr>
+
     <div class="box">
         <v-input v-model="message" @change="handle"></v-input>
         {{message}}
