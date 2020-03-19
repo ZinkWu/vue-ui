@@ -78,7 +78,6 @@ describe('Input', () => {
             inputEl.dispatchEvent(event)
             expect(callback).to.have.been.calledWith('hello')
           }
-
         })
     })
   })

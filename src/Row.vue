@@ -28,6 +28,11 @@
       rowClass() {
         return [this.align && `align-${this.align}`]
       }
+    },
+    mounted () {
+      this.$children.forEach((vm) => {
+        vm.gutter = this.gutter
+      })
     }
   }
 </script>

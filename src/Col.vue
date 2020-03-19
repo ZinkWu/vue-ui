@@ -58,9 +58,6 @@
         }
         return array
       }
-    },
-    mounted() {
-      this.gutter = this.$parent.gutter
     }
   }
 </script>
