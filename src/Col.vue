@@ -19,10 +19,9 @@
     props: {
       span: {type: [Number, String]},
       offset: {type: [Number, String]},
-      phone: {type: Object, validator},
       ipad: {type: Object, validator},
-      narrowPc: {type: Object, validator},
       pc: {type: Object, validator},
+      narrowPc: {type: Object, validator},
       widePc: {type: Object, validator}
     },
     data() {
@@ -33,13 +32,11 @@
     computed: {
       colClass() {
         return [
-          this.span && `col-${this.span}`,
-          this.offset && `offset-${this.offset}`,
-          this.phone && `col-phone-${this.phone.span}`,
-          this.ipad && `col-ipad-${this.ipad.span}`,
-          this.narrowPc && `col-narrowPc-${this.narrowPc.span}`,
-          this.pc && `col-pc-${this.pc.span}`,
-          this.widePc && `col-widePc-${this.widePc.span}`,
+          ...this.createClasses({span: this.span, offset: this.offset}),
+          ...this.createClasses(this.ipad, 'ipad-'),
+          ...this.createClasses(this.narrowPc, "narrowPc-"),
+          ...this.createClasses(this.pc, "pc-"),
+          ...this.createClasses(this.widePc, "widePc-")
         ]
       },
       colStyle() {
@@ -47,6 +44,19 @@
           paddingLeft: this.gutter / 2 + 'px',
           paddingRight: this.gutter / 2 + 'px'
         }
+      }
+    },
+    methods: {
+      createClasses: (obj, str = "") => {
+        if (!obj) return []
+        let array = []
+        if (obj.span) {
+          array.push(`col-${str}${obj.span}`)
+        }
+        if (obj.offset) {
+          array.push(`offset-${str}${obj.offset}`)
+        }
+        return array
       }
     },
     mounted() {
@@ -70,22 +80,9 @@
                 margin-left: ($n/24) * 100%;
             }
         }
-        @media (max-width: 576px) {
-            $class-prefix: col-phone-;
-            @for $n from 1 through 24 {
-                &.#{$class-prefix}#{$n} {
-                    width: ($n/24) * 100%;
-                }
-            }
 
-            $class-prefix: offset-phone-;
-            @for $n from 1 through 24 {
-                &.#{$class-prefix}#{$n} {
-                    margin-left: ($n/24) * 100%;
-                }
-            }
-        }
-        @media (min-width: 577px) and (max-width: 768px) {
+
+        @media (min-width: 577px) {
             $class-prefix: col-ipad-;
             @for $n from 1 through 24 {
                 &.#{$class-prefix}#{$n} {
@@ -100,7 +97,7 @@
                 }
             }
         }
-        @media (min-width: 769px) and (max-width: 992px) {
+        @media (min-width: 769px) {
             $class-prefix: col-narrowPc-;
             @for $n from 1 through 24 {
                 &.#{$class-prefix}#{$n} {
@@ -115,7 +112,7 @@
                 }
             }
         }
-        @media (min-width: 993px) and (max-width: 1200px) {
+        @media (min-width: 993px) {
             $class-prefix: col-pc-;
             @for $n from 1 through 24 {
                 &.#{$class-prefix}#{$n} {
@@ -130,7 +127,7 @@
                 }
             }
         }
-        @media (max-width: 1201px) {
+        @media (min-width: 1201px) {
             $class-prefix: col-widePc-;
             @for $n from 1 through 24 {
                 &.#{$class-prefix}#{$n} {
@@ -145,6 +142,7 @@
                 }
             }
         }
+
     }
 
 </style>
