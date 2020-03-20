@@ -10,6 +10,7 @@ import Header from "./Header";
 import Content from "./Content";
 import Sider from "./Sider";
 import Footer from "./Footer";
+import plugin from "./plugin";
 
 Vue.component("v-button", Button)
 Vue.component("v-button-group", ButtonGroup)
@@ -22,7 +23,7 @@ Vue.component('v-header', Header)
 Vue.component('v-content', Content)
 Vue.component('v-sider', Sider)
 Vue.component('v-footer', Footer)
-
+Vue.use(plugin)
 
 new Vue({
   el: "#app",
@@ -34,8 +35,8 @@ new Vue({
     }
   },
   methods:{
-    handle(e){
-      console.log(e.target.value);
+    showToast(){
+      this.$toast('fucking shit')
     }
   }
 })
