@@ -28,41 +28,22 @@
         .box{
             margin: 20px;
         }
+        .demo{
+            border: 1px solid black;
+            min-height: 100px;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <div style="border: 1px solid black">
-        <v-row gutter="20">
-            <v-col :span="12" :offset="8" :narrow-pc="{span: 8, offset: 12}" :wide-pc="{span: 4, offset: 20}">1</v-col>
-        </v-row>
-    </div>
-
-
-
-
-    <hr>
-
-    <div class="box">
-        <v-input v-model="message" @change="handle"></v-input>
-        {{message}}
-        <v-input value="李四" readonly></v-input>
-        <v-input value="李四" disabled></v-input>
-        <v-input value="张三" error="错误"></v-input>
-    </div>
-
-
-    <div class="box">
-        <v-button icon="settings" :loading="loading1" @click="loading1 = !loading1">123</v-button>
-        <v-button icon="settings" icon-position="left" :loading="loading2" @click="loading2 = !loading2">click me</v-button>
-        <v-button icon="loading" icon-position="left">按钮</v-button>
-        <v-button-group>
-            <v-button icon="left">上一页</v-button>
-            <v-button>更多</v-button>
-            <v-button icon="right" icon-position="right">下一页</v-button>
-        </v-button-group>
-    </div>
-    <div id="test"></div>
+    <v-layout style="height: 80vh">
+        <v-sider class="demo">sider</v-sider>
+        <v-layout>
+            <v-header class="demo">header</v-header>
+            <v-content class="demo">content</v-content>
+            <v-footer class="demo">footer</v-footer>
+        </v-layout>
+    </v-layout>
 </div>
 <script src="./src/app.js"></script>
 </body>
