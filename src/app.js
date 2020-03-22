@@ -43,7 +43,7 @@ new Vue({
             console.log('ok');
           }
         },
-        position: 'bottom'
+        position: 'center'
       })
     }
   }

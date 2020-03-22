@@ -27,7 +27,6 @@ export default {
 /*handles*/
 
 function createToast({Vue, message, propsData, onClose}) {
-  console.log(message, propsData)
   const Constructor = Vue.extend(Toast)
   let toast = new Constructor({
     propsData
