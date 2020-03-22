@@ -39,9 +39,8 @@ new Vue({
       this.$toast('<p>gfagfaigfhasdjgkhadasuighuadsighasdui</p><a style="color: white" href="https://www.baidu.com">fucking shit</a>', {
         closeButton:{
           text: "fuck",
-          callback: (obj) => {
-            console.log(obj);
-            obj.log()
+          callback: () => {
+            console.log('ok');
           }
         },
         enableHtml: true

@@ -39,16 +39,12 @@
       }
     },
     methods: {
-      log(){
-        console.log('fsafasf');
-      },
       close() {
         this.$el.remove()
         this.$destroy()
       },
       buttonClose(){
         this.close()
-        console.log(this.closeButton);
         if (this.closeButton && typeof this.closeButton.callback === 'function')
             this.closeButton.callback(this)
       }
@@ -60,7 +56,6 @@
         }, this.autoCloseDelay * 1000)
       }
       this.$nextTick(()=>{
-        console.log(this.$el.clientHeight)
         this.$refs.line.style.height = this.$el.clientHeight + 'px'
       })
     }
