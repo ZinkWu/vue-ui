@@ -36,7 +36,16 @@ new Vue({
   },
   methods:{
     showToast(){
-      this.$toast('fucking shit')
+      this.$toast('<p>gfagfaigfhasdjgkhadasuighuadsighasdui</p><a style="color: white" href="https://www.baidu.com">fucking shit</a>', {
+        closeButton:{
+          text: "fuck",
+          callback: (obj) => {
+            console.log(obj);
+            obj.log()
+          }
+        },
+        enableHtml: true
+      })
     }
   }
 })
