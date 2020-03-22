@@ -6,7 +6,7 @@
         </div>
         <template v-if="closeButton">
             <div class="line" ref="line"></div>
-            <div @click="buttonClose">
+            <div class="close" @click="buttonClose">
                 {{closeButton.text}}
             </div>
         </template>
@@ -22,7 +22,7 @@
       },
       autoCloseDelay: {
         type: Number,
-        default: 30
+        default: 5
       },
       closeButton: {
         type: Object,
