@@ -52,6 +52,7 @@
     },
     methods: {
       close() {
+        this.$emit('close')
         this.$el.remove()
         this.$destroy()
       },

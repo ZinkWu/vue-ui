@@ -36,14 +36,13 @@ new Vue({
   },
   methods:{
     showToast(){
-      this.$toast('<p>gfagfaigfhasdjgkhadasuighuadsighasdui</p><a style="color: white" href="https://www.baidu.com">fucking shit</a>', {
+      this.$toast(`得分${parseInt(Math.random()*100)}`, {
         closeButton:{
-          text: "fuck",
+          text: "ok",
           callback: () => {
             console.log('ok');
           }
         },
-        enableHtml: true,
         position: 'bottom'
       })
     }
