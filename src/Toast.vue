@@ -79,6 +79,20 @@
     $font-size: 14px;
     $toast-min-height: 40px;
     $toast-bg: rgba(0, 0, 0, .7);
+    @keyframes center-fade-in {
+        0%{opacity: 0;}
+        100%{opacity: 100%}
+    }
+    @keyframes bottom-fade-in {
+        0%{
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
     .toast {
         margin: 5px 0;
         position: fixed;
@@ -108,10 +122,12 @@
         }
         &.position-bottom{
             bottom: 0;
+            animation: bottom-fade-in .5s;
         }
         &.position-center{
             top: 50%;
             transform: translate(-50%, -50%);
+            animation: center-fade-in .5s;
         }
     }
 
